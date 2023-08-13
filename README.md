@@ -1,6 +1,6 @@
 ![](https://badgen.net/badge/CodeX%20Editor/v2.0/blue)
 
-# Warning Tool
+# Supplement Resource Tool
 
 Provides Warning Block for the [CodeX Editor](https://ifmo.su/editor). Block has title and message. It can be used, for example, for editorials notifications or appeals.
 
