@@ -13,13 +13,13 @@ Provides Warning Block for the [CodeX Editor](https://ifmo.su/editor). Block has
 Get the package
 
 ```shell
-npm i --save-dev @editorjs/warning
+npm i --save-dev @editorjs/resources
 ```
 
 Include module at your application
 
 ```javascript
-const Warning = require('@editorjs/warning');
+const Warning = require('@editorjs/resources');
 ```
 
 ### Download to your project's source dir
