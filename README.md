@@ -1,5 +1,4 @@
-![](https://badgen.net/badge/CodeX%20Editor/v2.0/blue)
-
+# This is built on the top of Warning Package for some custom purpose. Anyone is welcome to use it.
 # Supplement Resource Tool
 
 Provides Warning Block for the [CodeX Editor](https://ifmo.su/editor). Block has title and message. It can be used, for example, for editorials notifications or appeals.
@@ -13,13 +12,13 @@ Provides Warning Block for the [CodeX Editor](https://ifmo.su/editor). Block has
 Get the package
 
 ```shell
-npm i --save-dev @editorjs/resources
+npm i --save-dev editorjs-resources-skm
 ```
 
 Include module at your application
 
 ```javascript
-const Warning = require('@editorjs/resources');
+const Warning = require('editorjs-resources-skm');
 ```
 
 ### Download to your project's source dir
