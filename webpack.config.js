@@ -1,3 +1,5 @@
+const path = require('path');
+
 module.exports = {
   entry: './src/index.js',
   module: {
@@ -5,34 +7,40 @@ module.exports = {
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        use: [
-          {
-            loader: 'babel-loader',
-            query: {
-              presets: [ '@babel/preset-env' ],
-            },
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['@babel/preset-env'],
           },
-        ]
+        },
       },
       {
         test: /\.css$/,
         use: [
           'style-loader',
-          'css-loader'
-        ]
+          'css-loader',
+        ],
       },
       {
         test: /\.svg$/,
-        loader: 'svg-inline-loader?removeSVGTagAttrs=false'
-      }
-    ]
+        type: 'asset/inline', // Use asset modules for SVG
+        generator: {
+          dataUrl: content => {
+            content = content.toString();
+            return `data:image/svg+xml,${encodeURIComponent(content)}`;
+          },
+        },
+      },
+    ],
   },
   output: {
-    path: __dirname + '/dist',
+    path: path.resolve(__dirname, 'dist'),
     publicPath: '/',
     filename: 'bundle.js',
-    library: 'Warning',
-    libraryTarget: 'umd',
-    libraryExport: 'default'
-  }
+    library: {
+      name: 'Warning',
+      type: 'umd',
+      export: 'default',
+    },
+  },
 };
