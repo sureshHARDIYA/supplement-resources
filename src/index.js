@@ -4,23 +4,23 @@
 require('./index.css')
 
 /**
- * @class Warning
- * @classdesc Warning Tool for Editor.js
- * @property {WarningData} data - Warning Tool`s input and output data
+ * @class SupplementResources
+ * @classdesc Resource Tool for Editor.js
+ * @property {ResourceData} data - Resource Tool`s input and output data
  * @property {object} api - Editor.js API instance
  *
- * @typedef {object} WarningData
- * @description Warning Tool`s input and output data
- * @property {string} title - warning`s title
- * @property {string} type - warning's type (Document, Video, Audio, Image)
- * @property {string} message - warning`s message
+ * @typedef {object} ResourceData
+ * @description Resource Tool`s input and output data
+ * @property {string} title - Resource`s title
+ * @property {string} type - Resource's type (Document, Video, Audio, Image)
+ * @property {string} message - Resource`s message
  *
- * @typedef {object} WarningConfig
- * @description Warning Tool`s initial configuration
- * @property {string} titlePlaceholder - placeholder to show in warning`s title input
- * @property {string} messagePlaceholder - placeholder to show in warning`s message input
+ * @typedef {object} ResourceConfig
+ * @description Resource Tool`s initial configuration
+ * @property {string} titlePlaceholder - placeholder to show in Resource`s title input
+ * @property {string} messagePlaceholder - placeholder to show in Resource`s message input
  */
-export default class Warning {
+export default class SupplementResources {
   /**
    * Notify core that read-only mode is supported
    */
@@ -42,7 +42,7 @@ export default class Warning {
   }
 
   /**
-   * Allow to press Enter inside the Warning
+   * Allow to press Enter inside the Resource
    *
    * @public
    * @returns {boolean}
@@ -52,7 +52,7 @@ export default class Warning {
   }
 
   /**
-   * Default placeholder for warning title
+   * Default placeholder for Resource title
    *
    * @public
    * @returns {string}
@@ -62,7 +62,7 @@ export default class Warning {
   }
 
   /**
-   * Default placeholder for warning message
+   * Default placeholder for Resource message
    *
    * @public
    * @returns {string}
@@ -72,25 +72,25 @@ export default class Warning {
   }
 
   /**
-   * Warning Tool`s styles
+   * Resource Tool`s styles
    *
    * @returns {object}
    */
   get CSS() {
     return {
       baseClass: this.api.styles.block,
-      wrapper: 'cdx-warning',
-      title: 'cdx-warning__title',
+      wrapper: 'cdx-resource',
+      title: 'cdx-resource__title',
       input: this.api.styles.input,
-      message: 'cdx-warning__message',
+      message: 'cdx-resource__message',
     }
   }
 
   /**
    * Render plugin`s main Element and fill it with saved data
    *
-   * @param {WarningData} data — previously saved data
-   * @param {WarningConfig} config — user config for Tool
+   * @param {ResourceData} data — previously saved data
+   * @param {ResourceConfig} config — user config for Tool
    * @param {object} api - Editor.js API
    * @param {boolean} readOnly - read-only mode flag
    */
@@ -99,18 +99,19 @@ export default class Warning {
     this.readOnly = readOnly
 
     this.titlePlaceholder =
-      config.titlePlaceholder || Warning.DEFAULT_TITLE_PLACEHOLDER
+      config.titlePlaceholder || Resource.DEFAULT_TITLE_PLACEHOLDER
     this.messagePlaceholder =
-      config.messagePlaceholder || Warning.DEFAULT_MESSAGE_PLACEHOLDER
+      config.messagePlaceholder || Resource.DEFAULT_MESSAGE_PLACEHOLDER
 
     this.data = {
       title: data.title || '',
+      type: data.type || '',
       message: data.message || '',
     }
   }
 
   /**
-   * Create Warning Tool container with inputs
+   * Create Resource Tool container with inputs
    *
    * @returns {Element}
    */
@@ -140,16 +141,16 @@ export default class Warning {
   }
 
   /**
-   * Extract Warning data from Warning Tool element
+   * Extract Resource data from Resource Tool element
    *
-   * @param {HTMLDivElement} warningElement - element to save
-   * @returns {WarningData}
+   * @param {HTMLDivElement} ResourceElement - element to save
+   * @returns {ResourceData}
    */
-  save(warningElement) {
-    const typeSelect = warningElement.querySelector('select')
+  save(ResourceElement) {
+    const typeSelect = ResourceElement.querySelector('select')
     const type = typeSelect.value
-    const title = warningElement.querySelector(`.${this.CSS.title}`)
-    const message = warningElement.querySelector(`.${this.CSS.message}`)
+    const title = ResourceElement.querySelector(`.${this.CSS.title}`)
+    const message = ResourceElement.querySelector(`.${this.CSS.message}`)
 
     return Object.assign(this.data, {
       type,
@@ -199,7 +200,7 @@ export default class Warning {
   }
 
   /**
-   * Sanitizer config for Warning Tool saved data
+   * Sanitizer config for Resource Tool saved data
    *
    * @returns {object}
    */

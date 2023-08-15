@@ -38,7 +38,7 @@ module.exports = {
     publicPath: '/',
     filename: 'bundle.js',
     library: {
-      name: 'Warning',
+      name: 'Resource',
       type: 'umd',
       export: 'default',
     },

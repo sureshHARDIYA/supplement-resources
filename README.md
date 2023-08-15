@@ -1,7 +1,7 @@
-# This is built on the top of Warning Package for some custom purpose. Anyone is welcome to use it.
+# This is built on the top of Resource Package for some custom purpose. Anyone is welcome to use it.
 # Supplement Resource Tool
 
-Provides Warning Block for the [CodeX Editor](https://ifmo.su/editor). Block has title and message. It can be used, for example, for editorials notifications or appeals.
+Provides Resource Block for the [CodeX Editor](https://ifmo.su/editor). Block has title and message. It can be used, for example, for editorials notifications or appeals.
 
 ![](assets/2d7b7bc1-ac46-4020-89c9-390d1a7297e2.jpg)
 
@@ -18,7 +18,7 @@ npm i --save-dev editorjs-resources-skm
 Include module at your application
 
 ```javascript
-const Warning = require('editorjs-resources-skm');
+const Resource = require('editorjs-resources-skm');
 ```
 
 ### Download to your project's source dir
@@ -28,9 +28,9 @@ const Warning = require('editorjs-resources-skm');
 
 ### Load from CDN
 
-You can load specific version of package from [jsDelivr CDN](https://www.jsdelivr.com/package/npm/@editorjs/warning).
+You can load specific version of package from [jsDelivr CDN](https://www.jsdelivr.com/package/npm/@editorjs/Resource).
 
-`https://cdn.jsdelivr.net/npm/@editorjs/warning@latest`
+`https://cdn.jsdelivr.net/npm/@editorjs/Resource@latest`
 
 Then require this script on page with CodeX Editor.
 
@@ -48,14 +48,14 @@ var editor = CodexEditor({
   
   tools: {
     ...
-    warning: Warning,
+    Resource: Resource,
   },
   
   ...
 });
 ```
 
-Or init Warning Tool with additional settings
+Or init Resource Tool with additional settings
 
 ```javascript
 var editor = CodexEditor({
@@ -63,8 +63,8 @@ var editor = CodexEditor({
   
   tools: {
     ...
-    warning: {
-      class: Warning,
+    Resource: {
+      class: Resource,
       inlineToolbar: true,
       shortcut: 'CMD+SHIFT+W',
       config: {
@@ -82,19 +82,19 @@ var editor = CodexEditor({
 
 | Field              | Type     | Description                       |
 | ------------------ | -------- | ----------------------------------|
-| titlePlaceholder   | `string` | Warning Tool's title placeholder  |
-| messagePlaceholder | `string` | Warning Tool's message placeholder|
+| titlePlaceholder   | `string` | Resource Tool's title placeholder  |
+| messagePlaceholder | `string` | Resource Tool's message placeholder|
 
 ## Output data
 
 | Field     | Type     | Description      |
 | --------- | -------- | -----------------|
-| title     | `string` | warning's title  |
-| message   | `string` | warning's message|
+| title     | `string` | Resource's title  |
+| message   | `string` | Resource's message|
 
 ```json
 {
-    "type" : "warning",
+    "type" : "Resource",
     "data" : {
         "title" : "Note:",
         "message" : "Avoid using this method just for lulz. It can be very dangerous opposite your daily fun stuff."

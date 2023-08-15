@@ -1,6 +1,6 @@
 {
   "name": "editorjs-resources-skm",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "keywords": [
     "codex editor",
     "tool",
@@ -11,7 +11,7 @@
   ],
   "description": "Resources Tool for Editor.js",
   "license": "MIT",
-  "repository": "https://github.com/editor-js/warning",
+  "repository": "https://github.com/sureshHARDIYA/supplement-resources",
   "main": "./dist/bundle.js",
   "scripts": {
     "build": "webpack --mode production",
