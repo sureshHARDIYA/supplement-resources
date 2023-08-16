@@ -11,7 +11,7 @@
   ],
   "description": "Resources Tool for Editor.js",
   "license": "MIT",
-  "repository": "https://github.com/sureshHARDIYA/supplement-resources",
+  "repository": "git@github.com:sureshHARDIYA/supplement-resources.git",
   "main": "./dist/bundle.js",
   "scripts": {
     "build": "webpack --mode production",
