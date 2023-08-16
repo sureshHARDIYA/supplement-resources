@@ -1,6 +1,6 @@
 {
-  "name": "editorjs-resources-skm",
-  "version": "1.0.3",
+  "name": "@sureshhardiya/resources-skm",
+  "version": "1.0.4",
   "keywords": [
     "codex editor",
     "tool",
@@ -30,8 +30,5 @@
     "svg-inline-loader": "^0.8.0",
     "webpack": "^5.88.2",
     "webpack-cli": "^5.1.4"
-  },
-  "dependencies": {
-    "@codexteam/icons": "^0.0.4"
   }
 }
