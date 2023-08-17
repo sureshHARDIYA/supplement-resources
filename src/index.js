@@ -99,9 +99,9 @@ export default class SupplementResources {
     this.readOnly = readOnly
 
     this.titlePlaceholder =
-      config.titlePlaceholder || Resource.DEFAULT_TITLE_PLACEHOLDER
+      config.titlePlaceholder || SupplementResources.DEFAULT_TITLE_PLACEHOLDER
     this.messagePlaceholder =
-      config.messagePlaceholder || Resource.DEFAULT_MESSAGE_PLACEHOLDER
+      config.messagePlaceholder || SupplementResources.DEFAULT_MESSAGE_PLACEHOLDER
 
     this.data = {
       title: data.title || '',
