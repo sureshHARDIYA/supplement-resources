@@ -35,7 +35,7 @@ module.exports = {
     publicPath: "/",
     filename: "bundle.js",
     library: {
-      name: "SupplementSupplementResourcess",
+      name: "SupplementResources",
       type: "umd",
       export: "default",
     },
