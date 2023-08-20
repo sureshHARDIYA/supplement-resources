@@ -5,20 +5,20 @@ require("./index.css");
 
 /**
  * @class SupplementResources
- * @classdesc Resource Tool for Editor.js
- * @property {ResourceData} data - Resource Tool`s input and output data
+ * @classdesc SupplementResources Tool for Editor.js
+ * @property {SupplementResourcesData} data - SupplementResources Tool`s input and output data
  * @property {object} api - Editor.js API instance
  *
- * @typedef {object} ResourceData
- * @description Resource Tool`s input and output data
- * @property {string} title - Resource`s title
- * @property {string} type - Resource's type (Document, Video, Audio, Image)
- * @property {string} message - Resource`s message
+ * @typedef {object} SupplementResourcesData
+ * @description SupplementResources Tool`s input and output data
+ * @property {string} title - SupplementResources`s title
+ * @property {string} type - SupplementResources's type (Document, Video, Audio, Image)
+ * @property {string} message - SupplementResources`s message
  *
- * @typedef {object} ResourceConfig
- * @description Resource Tool`s initial configuration
- * @property {string} titlePlaceholder - placeholder to show in Resource`s title input
- * @property {string} messagePlaceholder - placeholder to show in Resource`s message input
+ * @typedef {object} SupplementResourcesConfig
+ * @description SupplementResources Tool`s initial configuration
+ * @property {string} titlePlaceholder - placeholder to show in SupplementResources`s title input
+ * @property {string} messagePlaceholder - placeholder to show in SupplementResources`s message input
  */
 export default class SupplementResources {
   /**
@@ -42,7 +42,7 @@ export default class SupplementResources {
   }
 
   /**
-   * Allow to press Enter inside the SupplementResources
+   * Allow to press Enter inside the SupplementSupplementResourcess
    *
    * @public
    * @returns {boolean}
@@ -52,7 +52,7 @@ export default class SupplementResources {
   }
 
   /**
-   * Default placeholder for Resource title
+   * Default placeholder for SupplementResources title
    *
    * @public
    * @returns {string}
@@ -62,7 +62,7 @@ export default class SupplementResources {
   }
 
   /**
-   * Default placeholder for Resource message
+   * Default placeholder for SupplementResources message
    *
    * @public
    * @returns {string}
@@ -72,7 +72,7 @@ export default class SupplementResources {
   }
 
   /**
-   * Resource Tool`s styles
+   * SupplementResources Tool`s styles
    *
    * @returns {object}
    */
@@ -89,8 +89,8 @@ export default class SupplementResources {
   /**
    * Render plugin`s main Element and fill it with saved data
    *
-   * @param {ResourceData} data — previously saved data
-   * @param {ResourceConfig} config — user config for Tool
+   * @param {SupplementResourcesData} data — previously saved data
+   * @param {SupplementResourcesConfig} config — user config for Tool
    * @param {object} api - Editor.js API
    * @param {boolean} readOnly - read-only mode flag
    */
@@ -112,7 +112,7 @@ export default class SupplementResources {
   }
 
   /**
-   * Create Resource Tool container with inputs
+   * Create SupplementResources Tool container with inputs
    *
    * @returns {Element}
    */
@@ -143,16 +143,20 @@ export default class SupplementResources {
   }
 
   /**
-   * Extract Resource data from Resource Tool element
+   * Extract SupplementResources data from SupplementResources Tool element
    *
-   * @param {HTMLDivElement} ResourceElement - element to save
-   * @returns {ResourceData}
+   * @param {HTMLDivElement} SupplementResourcesElement - element to save
+   * @returns {SupplementResourcesData}
    */
-  save(ResourceElement) {
-    const typeSelect = ResourceElement.querySelector("select");
+  save(SupplementResourcesElement) {
+    const typeSelect = SupplementResourcesElement.querySelector("select");
     const type = typeSelect.value;
-    const title = ResourceElement.querySelector(`.${this.CSS.title}`);
-    const message = ResourceElement.querySelector(`.${this.CSS.message}`);
+    const title = SupplementResourcesElement.querySelector(
+      `.${this.CSS.title}`
+    );
+    const message = SupplementResourcesElement.querySelector(
+      `.${this.CSS.message}`
+    );
 
     return Object.assign(this.data, {
       type,
@@ -202,7 +206,7 @@ export default class SupplementResources {
   }
 
   /**
-   * Sanitizer config for Resource Tool saved data
+   * Sanitizer config for SupplementResources Tool saved data
    *
    * @returns {object}
    */

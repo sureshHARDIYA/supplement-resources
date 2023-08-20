@@ -1,6 +1,6 @@
 {
   "name": "sureshhardiya-resource",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "keywords": [
     "codex editor",
     "tool",
@@ -9,7 +9,7 @@
     "editor.js",
     "editor"
   ],
-  "description": "Resources Tool for Editor.js",
+  "description": "SupplementResourcess Tool for Editor.js",
   "license": "MIT",
   "repository": "git@github.com:sureshHARDIYA/supplement-resources.git",
   "main": "./dist/bundle.js",

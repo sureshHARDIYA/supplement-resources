@@ -1,7 +1,7 @@
-# This is built on the top of Resource Package for some custom purpose. Anyone is welcome to use it.
-# Supplement Resource Tool
+# This is built on the top of SupplementResources Package for some custom purpose. Anyone is welcome to use it.
+# Supplement SupplementResources Tool
 
-Provides Resource Block for the [CodeX Editor](https://ifmo.su/editor). Block has title and message. It can be used, for example, for editorials notifications or appeals.
+Provides SupplementResources Block for the [CodeX Editor](https://ifmo.su/editor). Block has title and message. It can be used, for example, for editorials notifications or appeals.
 
 ![](assets/2d7b7bc1-ac46-4020-89c9-390d1a7297e2.jpg)
 
@@ -18,7 +18,7 @@ npm i --save-dev sureshhardiya-resource
 Include module at your application
 
 ```javascript
-const Resource = require('sureshhardiya-resource');
+const SupplementResources = require('sureshhardiya-resource');
 ```
 
 ### Download to your project's source dir
