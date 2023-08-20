@@ -1,7 +1,7 @@
 /**
  * Build styles
  */
-require('./index.css')
+require("./index.css");
 
 /**
  * @class SupplementResources
@@ -25,7 +25,7 @@ export default class SupplementResources {
    * Notify core that read-only mode is supported
    */
   static get isReadOnlySupported() {
-    return true
+    return true;
   }
 
   /**
@@ -36,19 +36,19 @@ export default class SupplementResources {
    */
   static get toolbox() {
     return {
-      icon: 'R',
-      title: 'Resource',
-    }
+      icon: "R",
+      title: "SupplementResources",
+    };
   }
 
   /**
-   * Allow to press Enter inside the Resource
+   * Allow to press Enter inside the SupplementResources
    *
    * @public
    * @returns {boolean}
    */
   static get enableLineBreaks() {
-    return true
+    return true;
   }
 
   /**
@@ -58,7 +58,7 @@ export default class SupplementResources {
    * @returns {string}
    */
   static get DEFAULT_TITLE_PLACEHOLDER() {
-    return 'Title'
+    return "Title";
   }
 
   /**
@@ -68,7 +68,7 @@ export default class SupplementResources {
    * @returns {string}
    */
   static get DEFAULT_MESSAGE_PLACEHOLDER() {
-    return 'Message'
+    return "Message";
   }
 
   /**
@@ -79,11 +79,11 @@ export default class SupplementResources {
   get CSS() {
     return {
       baseClass: this.api.styles.block,
-      wrapper: 'cdx-resource',
-      title: 'cdx-resource__title',
+      wrapper: "cdx-resource",
+      title: "cdx-resource__title",
       input: this.api.styles.input,
-      message: 'cdx-resource__message',
-    }
+      message: "cdx-resource__message",
+    };
   }
 
   /**
@@ -95,19 +95,20 @@ export default class SupplementResources {
    * @param {boolean} readOnly - read-only mode flag
    */
   constructor({ data, config, api, readOnly }) {
-    this.api = api
-    this.readOnly = readOnly
+    this.api = api;
+    this.readOnly = readOnly;
 
     this.titlePlaceholder =
-      config.titlePlaceholder || SupplementResources.DEFAULT_TITLE_PLACEHOLDER
+      config.titlePlaceholder || SupplementResources.DEFAULT_TITLE_PLACEHOLDER;
     this.messagePlaceholder =
-      config.messagePlaceholder || SupplementResources.DEFAULT_MESSAGE_PLACEHOLDER
+      config.messagePlaceholder ||
+      SupplementResources.DEFAULT_MESSAGE_PLACEHOLDER;
 
     this.data = {
-      title: data.title || '',
-      type: data.type || '',
-      message: data.message || '',
-    }
+      title: data.title || "",
+      type: data.type || "",
+      message: data.message || "",
+    };
   }
 
   /**
@@ -116,28 +117,29 @@ export default class SupplementResources {
    * @returns {Element}
    */
   render() {
-    const container = this._make('div', [this.CSS.baseClass, this.CSS.wrapper])
+    const container = this._make("div", [this.CSS.baseClass, this.CSS.wrapper]);
     // Create a select input for type
-    const typeOptions = ['Document', 'Video', 'Audio', 'Image']
-    const typeSelect = this._makeSelect(typeOptions, this.data.type)
+    const typeOptions = ["Document", "Video", "Audio", "Image"];
+    const typeSelect = this._makeSelect(typeOptions, this.data.type);
 
-    const title = this._make('div', [this.CSS.input, this.CSS.title], {
+    const title = this._make("div", [this.CSS.input, this.CSS.title], {
       contentEditable: !this.readOnly,
       innerHTML: this.data.title,
-    })
-    const message = this._make('div', [this.CSS.input, this.CSS.message], {
+    });
+    const message = this._make("div", [this.CSS.input, this.CSS.message], {
       contentEditable: !this.readOnly,
       innerHTML: this.data.message,
-    })
+    });
 
-    title.dataset.placeholder = this.titlePlaceholder
-    message.dataset.placeholder = this.messagePlaceholder
+    title.dataset.placeholder = this.titlePlaceholder;
+    message.dataset.placeholder = this.messagePlaceholder;
 
-    container.appendChild(typeSelect)
-    container.appendChild(title)
-    container.appendChild(message)
+    container.appendChild(typeSelect);
+    container.appendChild(title);
+    container.appendChild(message);
 
-    return container
+    console.log("SupplementResources render is called");
+    return container;
   }
 
   /**
@@ -147,16 +149,16 @@ export default class SupplementResources {
    * @returns {ResourceData}
    */
   save(ResourceElement) {
-    const typeSelect = ResourceElement.querySelector('select')
-    const type = typeSelect.value
-    const title = ResourceElement.querySelector(`.${this.CSS.title}`)
-    const message = ResourceElement.querySelector(`.${this.CSS.message}`)
+    const typeSelect = ResourceElement.querySelector("select");
+    const type = typeSelect.value;
+    const title = ResourceElement.querySelector(`.${this.CSS.title}`);
+    const message = ResourceElement.querySelector(`.${this.CSS.message}`);
 
     return Object.assign(this.data, {
       type,
       title: title.innerHTML,
       message: message.innerHTML,
-    })
+    });
   }
 
   /**
@@ -168,35 +170,35 @@ export default class SupplementResources {
    * @returns {Element}
    */
   _make(tagName, classNames = null, attributes = {}) {
-    const el = document.createElement(tagName)
+    const el = document.createElement(tagName);
 
     if (Array.isArray(classNames)) {
-      el.classList.add(...classNames)
+      el.classList.add(...classNames);
     } else if (classNames) {
-      el.classList.add(classNames)
+      el.classList.add(classNames);
     }
 
     for (const attrName in attributes) {
-      el[attrName] = attributes[attrName]
+      el[attrName] = attributes[attrName];
     }
 
-    return el
+    return el;
   }
 
   _makeSelect(options, selectedOption) {
-    const select = this._make('select', [this.CSS.input, this.CSS.title])
+    const select = this._make("select", [this.CSS.input, this.CSS.title]);
 
     options.forEach((option) => {
-      const optionElement = this._make('option')
-      optionElement.value = option
-      optionElement.text = option
+      const optionElement = this._make("option");
+      optionElement.value = option;
+      optionElement.text = option;
       if (option === selectedOption) {
-        optionElement.selected = true
+        optionElement.selected = true;
       }
-      select.appendChild(optionElement)
-    })
+      select.appendChild(optionElement);
+    });
 
-    return select
+    return select;
   }
 
   /**
@@ -209,6 +211,6 @@ export default class SupplementResources {
       title: {},
       type: {},
       message: {},
-    }
+    };
   }
 }
